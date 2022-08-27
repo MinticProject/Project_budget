@@ -8,9 +8,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "rol")
 public class RolModel{
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true,nullable = false)
     private Long id;
     private String rol;
 
