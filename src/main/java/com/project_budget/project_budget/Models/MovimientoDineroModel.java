@@ -1,4 +1,4 @@
-package com.project_budget.project_budget;
+package com.project_budget.project_budget.Models;
 
 import javax.persistence.*;
 
@@ -17,6 +17,7 @@ import javax.persistence.*;
         //relacion una a muchos con la tabla empresa
         @ManyToOne
         @JoinColumn(name="empleado_id",referencedColumnName="id", insertable=false, updatable=false)
+        private EmpleadoModel empleado_id;
 
     public Long getId() {
         return id;

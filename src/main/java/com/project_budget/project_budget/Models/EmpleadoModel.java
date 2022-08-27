@@ -1,4 +1,4 @@
-package com.project_budget.project_budget;
+package com.project_budget.project_budget.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +25,9 @@ public class EmpleadoModel {
     @ManyToOne
     @JoinColumn(name="empresa_id",referencedColumnName="id", insertable=false, updatable=false)
     private EmpresaModel empresa_id;
-    
     //administrativo u operativo
     private String rol;
 
-  
     public String getNombre() {
         return nombre;
     }
@@ -46,7 +44,6 @@ public class EmpleadoModel {
         this.correo = correo;
     }
 
-   
 
     public String getRol() {
         return rol;
@@ -72,12 +69,4 @@ public class EmpleadoModel {
         this.id = id;
     }
 
-   
-
-   
-
-   
-
-    
-    
 }

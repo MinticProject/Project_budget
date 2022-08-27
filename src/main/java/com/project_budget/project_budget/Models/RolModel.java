@@ -1,5 +1,5 @@
 
-package com.project_budget.project_budget;
+package com.project_budget.project_budget.Models;
 
 import java.util.List;
 
