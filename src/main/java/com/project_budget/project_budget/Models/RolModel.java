@@ -13,8 +13,10 @@ public class RolModel{
     @Column(name = "id", nullable = false)
     private Long id;
     private String rol;
+
     @OneToMany(mappedBy = "rol_id")
     private List<EmpleadoModel> empleado;
+
 
     public Long getId() {
         return id;

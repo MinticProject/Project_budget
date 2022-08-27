@@ -1,17 +1,22 @@
 package com.project_budget.project_budget.Models;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.persistence.Id;
 @Entity
 @Table(name="usuario")
 public class UsuarioModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
-
     private Long id;
     private String usuario; 
     private String contraseña;
+    
+    @OneToMany(mappedBy = "usuario_id")
+    private List<EmpleadoModel> empleado;
     
     public Long getId() {
         return id;

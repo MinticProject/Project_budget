@@ -25,8 +25,19 @@ public class EmpleadoModel {
     @ManyToOne
     @JoinColumn(name="empresa_id",referencedColumnName="id", insertable=false, updatable=false)
     private EmpresaModel empresa_id;
+
+    //relacion una a muchos con la tabla RolModel
     //administrativo u operativo
-    private String rol;
+    @ManyToOne
+    @JoinColumn(name="rol_id",referencedColumnName="id", insertable=false, updatable=false)
+    private RolModel rol_id;
+
+    //relacion una a muchos con la tabla UsuarioModel
+    @ManyToOne
+    @JoinColumn(name="usuario_id",referencedColumnName="id", insertable=false, updatable=false)
+    private UsuarioModel usuario_id;
+
+
 
     public String getNombre() {
         return nombre;
@@ -44,15 +55,6 @@ public class EmpleadoModel {
         this.correo = correo;
     }
 
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
     public EmpresaModel getEmpresa_id() {
         return empresa_id;
     }
@@ -67,6 +69,14 @@ public class EmpleadoModel {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public RolModel getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(RolModel rol_id) {
+        this.rol_id = rol_id;
     }
 
 }
