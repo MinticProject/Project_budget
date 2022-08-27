@@ -1,5 +1,7 @@
 package com.project_budget.project_budget.Models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,12 +35,9 @@ public class EmpleadoModel {
     @JoinColumn(name="rol_id",referencedColumnName="id", insertable=false, updatable=false)
     private RolModel rol_id;
 
-    //relacion una a muchos con la tabla UsuarioModel
-    @ManyToOne
-    @JoinColumn(name="usuario_id",referencedColumnName="id", insertable=false, updatable=false)
-    private UsuarioModel usuario_id;
-
-
+    //Relacion con la tabla Usuario
+    @OneToMany(mappedBy = "empleado_id")
+    private List<UsuarioModel> usuario;
 
     public String getNombre() {
         return nombre;

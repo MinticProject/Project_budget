@@ -1,7 +1,5 @@
 package com.project_budget.project_budget.Models;
 
-import java.util.List;
-
 import javax.persistence.*;
 import javax.persistence.Id;
 @Entity
@@ -15,8 +13,10 @@ public class UsuarioModel {
     private String usuario; 
     private String contraseña;
     
-    @OneToMany(mappedBy = "usuario_id")
-    private List<EmpleadoModel> empleado;
+    //relacion una a muchos con la tabla UsuarioModel
+    @ManyToOne
+    @JoinColumn(name="empleado_id",referencedColumnName="id", insertable=false, updatable=false)
+    private EmpleadoModel empleado_id;
     
     public Long getId() {
         return id;
