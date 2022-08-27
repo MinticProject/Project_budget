@@ -1,5 +1,5 @@
 
-package com.apispring2.apispring2.Models;
+package com.project_budget.project_budget;
 
 import java.util.List;
 

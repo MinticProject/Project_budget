@@ -1,6 +1,8 @@
 package com.project_budget.project_budget;
 
-    @Entity
+import javax.persistence.*;
+
+@Entity
     @Table(name = "movimientodinero")
     public class MovimientoDineroModel {
 
@@ -14,7 +16,7 @@ package com.project_budget.project_budget;
 
         //relacion una a muchos con la tabla empresa
         @ManyToOne
-        @JoinColumn(name="empleado_id",referencedColumnName="id", insertable=false, updatable=false
+        @JoinColumn(name="empleado_id",referencedColumnName="id", insertable=false, updatable=false)
 
     public Long getId() {
         return id;
@@ -39,7 +41,5 @@ package com.project_budget.project_budget;
     public void setConcepto(String concepto) {
         this.concepto = concepto;
     }
-                
-                
-    }
+}
 

@@ -1,5 +1,7 @@
 package com.project_budget.project_budget;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
