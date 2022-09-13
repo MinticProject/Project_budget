@@ -1,16 +1,6 @@
 package com.project_budget.project_budget.Models;
-
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "empleado")
@@ -19,7 +9,7 @@ public class EmpleadoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
-    private Long id;
+    private Integer id;
 
     private String nombre;
     private String correo;
@@ -38,6 +28,15 @@ public class EmpleadoModel {
     //Relacion con la tabla Usuario
     @OneToMany(mappedBy = "empleado_id")
     private List<UsuarioModel> usuario;
+
+    // Contructor
+    public EmpleadoModel(Integer id,String nombre, String correo, EmpresaModel empresa_id, RolModel rol_id) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresa_id = empresa_id;
+        this.rol_id = rol_id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -63,11 +62,11 @@ public class EmpleadoModel {
         this.empresa_id = empresa_id;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
