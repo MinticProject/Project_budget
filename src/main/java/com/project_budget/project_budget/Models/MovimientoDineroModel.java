@@ -9,9 +9,9 @@ import javax.persistence.*;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(unique = true,nullable = false)
-        private Long id;
+        private Integer id;
 
-        private float monto;
+        private double monto;
         private String concepto;
 
         //relacion una a muchos con la tabla empresa
@@ -19,19 +19,27 @@ import javax.persistence.*;
         @JoinColumn(name="empleado_id",referencedColumnName="id", insertable=false, updatable=false)
         private EmpleadoModel empleado_id;
 
-    public Long getId() {
+       //Constructor
+    public MovimientoDineroModel(Integer id,double monto, String concepto, EmpleadoModel empleado_id) {
+        this.id = id;
+        this.monto = monto;
+        this.concepto = concepto;
+        this.empleado_id = empleado_id;
+    } 
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public float getMonto() {
+    public double getMonto() {
         return monto;
     }
 
-    public void setMonto(float monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 
@@ -41,6 +49,14 @@ import javax.persistence.*;
 
     public void setConcepto(String concepto) {
         this.concepto = concepto;
+    }
+
+    @Override
+    public String toString() {
+        return "MovimientoDineroModel [concepto=" + concepto + 
+        ", empleado_id=" + empleado_id + 
+        ", id=" + id + 
+        ", monto=" + monto + "]";
     }
 }
 
