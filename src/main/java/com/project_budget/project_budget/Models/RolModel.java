@@ -8,18 +8,25 @@ import javax.persistence.*;
 @Entity
 @Table(name = "rol")
 public class RolModel{
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Integer id;
     private String rol;
+
     @OneToMany(mappedBy = "rol_id")
     private List<EmpleadoModel> empleado;
 
-    public Long getId() {
+    public RolModel(Integer id,String rol) {
+        this.id = id;
+        this.rol = rol;
+    }
+
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getRol() {
@@ -35,4 +42,9 @@ public class RolModel{
         this.empleado = empleado;
     }
 
+    @Override
+    public String toString() {
+        return "RolModel [id=" + id +
+        ", rol=" + rol + "]";
+    }
 }
