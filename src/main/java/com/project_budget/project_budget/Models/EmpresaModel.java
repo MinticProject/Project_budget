@@ -11,20 +11,29 @@ public class EmpresaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long id;
+    private Integer id;
     private String nombre;
     private String direccion;
-    private Long telefono;
+    private Integer telefono;
     private String nit;
 
     @OneToMany(mappedBy = "empresa_id")
     private List<EmpleadoModel> empleado;
 
-    public Long getId() {
+    //Contructor
+    public EmpresaModel(Integer id,String nombre, String direccion, Integer telefono, String nit) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.nit = nit;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,11 +53,11 @@ public class EmpresaModel {
         this.direccion = direccion;
     }
 
-    public Long getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 
@@ -67,6 +76,13 @@ public class EmpresaModel {
     public void setEmpleado(List<EmpleadoModel> empleado) {
         this.empleado = empleado;
     }
-
+    @Override
+    public String toString() {
+        return "EmpresaModel [direccion=" + direccion + 
+                ", id=" + id + 
+                ", nit=" + nit + 
+                ", nombre=" + nombre
+                + ", telefono=" + telefono + "]";
+    }
 
 }
