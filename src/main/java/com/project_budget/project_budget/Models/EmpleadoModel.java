@@ -54,15 +54,6 @@ public class EmpleadoModel {
         this.correo = correo;
     }
 
-
-    public RolModel getRol_id() {
-        return rol_id;
-    }
-
-    public void setRol_id(RolModel rol_id) {
-        this.rol_id = rol_id;
-    }
-
     public EmpresaModel getEmpresa_id() {
         return empresa_id;
     }
@@ -77,6 +68,14 @@ public class EmpleadoModel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public RolModel getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(RolModel rol_id) {
+        this.rol_id = rol_id;
     }
 
 }
